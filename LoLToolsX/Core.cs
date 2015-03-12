@@ -79,7 +79,7 @@ namespace LoLToolsX
             if (!String.IsNullOrEmpty(LoLPath))
             {
                 //string lolProp = File.ReadAllText(LoLPath + "Air\lol.properties",Encoding.Default);
-                StreamReader reader = new StreamReader(LoLPath + "Air\lol.properties",Encoding.Default);
+                StreamReader reader = new StreamReader(LoLPath + "Air\\lol.properties",Encoding.Default);
                 while (!reader.EndOfStream)
                 {
                     string line = reader.ReadLine();
