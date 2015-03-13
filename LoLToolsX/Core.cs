@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,21 +55,28 @@ namespace LoLToolsX
 
         public static string GetLoLPath()
         {
-            StringBuilder path = new StringBuilder();
+            string path = "";
             RegistryKey regKey = Registry.LocalMachine;
 
             if (regKey.OpenSubKey("SOFTWARE\\Garena\\LoLTW") != null)
-                path.Append(regKey.OpenSubKey("SOFTWARE\\Garena\\LoLTW").GetValue("Path"));
+                path = regKey.OpenSubKey("SOFTWARE\\Garena\\LoLTW").GetValue("Path");
             else
             {
                 regKey = Registry.CurrentUser;
                 if (regKey.OpenSubKey("Software\\Garena\\LoLTW") != null)
-                    path.Append(regKey.OpenSubKey("Software\\Garena\\LoLTW").GetValue("Path"));
+                    path = regKey.OpenSubKey("Software\\Garena\\LoLTW").GetValue("Path");
+            }
+
+            if (!path.Contains("LoLTW"))
+            {
+                //TODO
             }
 
 #if DEBUG
-            System.Windows.MessageBox.Show(path.ToString());
+            System.Windows.MessageBox.Show(path);
 #endif
+
+            regKey.Close();
             return path.ToString();
         }
 
@@ -79,15 +86,17 @@ namespace LoLToolsX
             if (!String.IsNullOrEmpty(LoLPath))
             {
                 //string lolProp = File.ReadAllText(LoLPath + "Air\lol.properties",Encoding.Default);
-                StreamReader reader = new StreamReader(LoLPath + "Air\\lol.properties",Encoding.Default);
-                while (!reader.EndOfStream)
+                using (var reader = new StreamReader(LoLPath + "Air\\lol.properties",Encoding.Default))
                 {
-                    string line = reader.ReadLine();
-                    if (line.StartsWith("host="))
+                    while (!reader.EndOfStream)
                     {
-                        switch (line)
+                        string line = reader.ReadLine();
+                        if (line.StartsWith("host="))
                         {
-                            //TODO
+                            switch (line)
+                            {
+                                //TODO
+                            }
                         }
                     }
                 }
