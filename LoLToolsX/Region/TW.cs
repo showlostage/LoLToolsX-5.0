@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LoLToolsX.Region
 {
-    class TW : BaseRegion, IRegion
+    class TW : BaseRegion
     {
 
         public override string ServerHost
