@@ -7,6 +7,8 @@ using LoLToolsX.Properties;
 using Microsoft.Win32;
 using System.IO;
 
+using LoLToolsX.Region;
+
 namespace LoLToolsX.Logic
 {
     class Core
@@ -26,6 +28,8 @@ namespace LoLToolsX.Logic
                     _sever = value;
             }
         }
+
+        public static IRegion region { get; set; }
 
         public static string LoLPath
         {
@@ -116,18 +120,18 @@ namespace LoLToolsX.Logic
             }
             return server;
         }
+    }
 
-        public enum Server
-        {
-            TW,
-            NA,
-            KR,
-            SEA,
-            EUW,
-            EUNE,
-            OCE,
-            PBE,
-            //CN,
-        }
+    public enum Server
+    {
+        TW,
+        NA,
+        KR,
+        SEA,
+        EUW,
+        EUNE,
+        OCE,
+        PBE,
+        //CN,
     }
 }
