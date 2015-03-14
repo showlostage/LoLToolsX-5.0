@@ -7,7 +7,7 @@ using LoLToolsX.Properties;
 using Microsoft.Win32;
 using System.IO;
 
-namespace LoLToolsX
+namespace LoLToolsX.Logic
 {
     class Core
     {
@@ -59,12 +59,12 @@ namespace LoLToolsX
             RegistryKey regKey = Registry.LocalMachine;
 
             if (regKey.OpenSubKey("SOFTWARE\\Garena\\LoLTW") != null)
-                path = regKey.OpenSubKey("SOFTWARE\\Garena\\LoLTW").GetValue("Path");
+                path = regKey.OpenSubKey("SOFTWARE\\Garena\\LoLTW").GetValue("Path").ToString();
             else
             {
                 regKey = Registry.CurrentUser;
                 if (regKey.OpenSubKey("Software\\Garena\\LoLTW") != null)
-                    path = regKey.OpenSubKey("Software\\Garena\\LoLTW").GetValue("Path");
+                    path = regKey.OpenSubKey("Software\\Garena\\LoLTW").GetValue("Path").ToString();
             }
 
             if (!path.Contains("LoLTW"))

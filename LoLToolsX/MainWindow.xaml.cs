@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 using MahApps.Metro;
 using MahApps.Metro.Controls;
+
+using LoLToolsX.Logic;
+using LoLToolsX.Region;
 
 namespace LoLToolsX
 {
