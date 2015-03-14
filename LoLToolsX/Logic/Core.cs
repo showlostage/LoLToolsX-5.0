@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,8 +18,6 @@ namespace LoLToolsX.Logic
         {
             get
             {
-                if (_sever == null)
-                    return Server.TW;
                 return _sever;
             }
             set
@@ -69,7 +67,22 @@ namespace LoLToolsX.Logic
 
             if (!path.Contains("LoLTW"))
             {
-                //TODO
+                using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
+                {
+                    dialog.Description = "請選擇 LoLTW 目錄";
+                    dialog.RootFolder = Environment.SpecialFolder.ProgramFiles;
+
+                    if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        if (dialog.SelectedPath.Contains("LoLTW"))
+                            Core.LoLPath = dialog.SelectedPath;
+                        else
+                        {
+                            System.Windows.MessageBox.Show("LoLTW 目錄選擇錯誤，按確定離開程式");
+                            Environment.Exit(0);
+                        }
+                    }
+                }
             }
 
 #if DEBUG
