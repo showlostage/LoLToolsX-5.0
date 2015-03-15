@@ -81,7 +81,7 @@ namespace LoLToolsX.Logic
                     path = regKey.OpenSubKey("Software\\Garena\\LoLTW").GetValue("Path").ToString();
             }
 
-            if (!path.Contains("LoLTW"))
+            if (!path.EndsWith("LoLTW") || !path.EndsWith("LoLTW\\"))
             {
                 using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
                 {
@@ -90,13 +90,21 @@ namespace LoLToolsX.Logic
 
                     if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
-                        if (dialog.SelectedPath.Contains("LoLTW"))
+                        if (dialog.SelectedPath.EndsWith("LoLTW") || !dialog.SelectedPath.EndsWith("LoLTW\\"))
+                        {
                             Core.LoLPath = dialog.SelectedPath;
+                            regKey.CreateSubKey("Software\\Garena\\LoLTW").SetValue("Path", Core.LoLPath);
+                        }
                         else
                         {
-                            System.Windows.MessageBox.Show("LoLTW 目錄選擇錯誤，按確定離開程式");
+                            System.Windows.MessageBox.Show("LoLTW 目錄選擇錯誤，按確定離開程式", "錯誤", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
                             Environment.Exit(0);
                         }
+                    }
+                    else
+                    {
+                        System.Windows.MessageBox.Show("LoLTW 目錄沒有選擇，按確定離開程式","錯誤",System.Windows.MessageBoxButton.OK,System.Windows.MessageBoxImage.Error);
+                        Environment.Exit(0);
                     }
                 }
             }
