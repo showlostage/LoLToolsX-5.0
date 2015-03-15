@@ -1,27 +1,52 @@
-﻿<Controls:MetroWindow x:Name="MainWindow1" x:Class="LoLToolsX.MainWindow"
+﻿<Controls:MetroWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="LOLTOOLSX" Height="541.045" Width="953.359" WindowStartupLocation="CenterScreen" Loaded="MainWindow1_Loaded">
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Name="MainWindow1" x:Class="LoLToolsX.MainWindow"
+        Title="LOLTOOLSX" Height="475.045" Width="837.062" WindowStartupLocation="CenterScreen" Loaded="MainWindow1_Loaded">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="500" Margin="10,0,0,0" VerticalAlignment="Top" Width="935">
-            <TabItem Header="狀態資訊">
-                <Grid Background="#FFE5E5E5" Margin="0">
-                    <Label Content="LoLTW 路徑 : " HorizontalAlignment="Left" Margin="62,120,0,0" VerticalAlignment="Top" Height="38" Width="126" FontSize="18"/>
-                    <Label Content="LoL 版本 : " HorizontalAlignment="Left" Margin="62,236,0,0" VerticalAlignment="Top" Height="36" Width="98" FontSize="18"/>
-                    <Label Content="客戶端 : " HorizontalAlignment="Left" Margin="62,176,0,0" VerticalAlignment="Top" Height="36" Width="98" FontSize="18"/>
-                    <Label Content="LoLToolsX 版本 : " HorizontalAlignment="Left" Margin="62,298,0,0" VerticalAlignment="Top" Height="36" Width="150" FontSize="18"/>
-                    <Label Content="目前伺服器 : " HorizontalAlignment="Left" Margin="62,360,0,0" VerticalAlignment="Top" Height="36" Width="126" FontSize="18"/>
-                    <Label x:Name="lblPath" Content="Path" HorizontalAlignment="Left" Margin="287,120,0,0" VerticalAlignment="Top" Height="36" Width="632" FontSize="18"/>
-                    <Label x:Name="lblClient" Content="CLient" HorizontalAlignment="Left" Margin="287,176,0,0" VerticalAlignment="Top" Height="36" Width="632" FontSize="18"/>
-                    <Label x:Name="lblLolVersion" Content="LoLVersion" HorizontalAlignment="Left" Margin="287,236,0,0" VerticalAlignment="Top" Height="36" Width="632" FontSize="18"/>
-                    <Label x:Name="lblServer" Content="Server" HorizontalAlignment="Left" Margin="287,360,0,0" VerticalAlignment="Top" Height="36" Width="632" FontSize="18"/>
-                    <Label x:Name="lblToolsVerson" HorizontalAlignment="Left" Margin="287,298,0,0" VerticalAlignment="Top" Height="36" Width="632" FontSize="18">
-                    </Label>
+        <TabControl HorizontalAlignment="Left" Height="434" Margin="10,0,0,0" VerticalAlignment="Top" Width="812">
+            <TabItem Name="tabAbout" Header="狀態資訊">
+                <Grid Background="#FFE5E5E5" Margin="0,0,3,2">
+                    <Label Content="LoLTW 路徑 : " HorizontalAlignment="Left" Margin="12,98,0,0" VerticalAlignment="Top" Height="35" Width="115" FontSize="18"/>
+                    <Label Content="LoL 版本 : " HorizontalAlignment="Left" Margin="12,204,0,0" VerticalAlignment="Top" Height="33" Width="89" FontSize="18"/>
+                    <Label Content="客戶端 : " HorizontalAlignment="Left" Margin="12,149,0,0" VerticalAlignment="Top" Height="33" Width="89" FontSize="18"/>
+                    <Label Content="LoLToolsX 版本 : " HorizontalAlignment="Left" Margin="12,260,0,0" VerticalAlignment="Top" Height="33" Width="137" FontSize="18"/>
+                    <Label Content="目前伺服器 : " HorizontalAlignment="Left" Margin="12,317,0,0" VerticalAlignment="Top" Height="33" Width="115" FontSize="18"/>
+                    <Label x:Name="lblPath" Content="Path" HorizontalAlignment="Left" Margin="217,98,0,0" VerticalAlignment="Top" Height="33" Width="576" FontSize="18"/>
+                    <Label x:Name="lblClient" Content="CLient" HorizontalAlignment="Left" Margin="217,149,0,0" VerticalAlignment="Top" Height="33" Width="576" FontSize="18"/>
+                    <Label x:Name="lblLolVersion" Content="LoLVersion" HorizontalAlignment="Left" Margin="217,204,0,0" VerticalAlignment="Top" Height="33" Width="576" FontSize="18"/>
+                    <Label x:Name="lblServer" Content="Server" HorizontalAlignment="Left" Margin="217,317,0,0" VerticalAlignment="Top" Height="33" Width="576" FontSize="18"/>
+                    <Label x:Name="lblToolsVerson" HorizontalAlignment="Left" Margin="217,260,0,0" VerticalAlignment="Top" Height="33" Width="576" FontSize="18"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="伺服器切換">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem x:Name="tabServerSwitch" Header="伺服器切換">
+                <Grid Background="#FFE5E5E5" Margin="0,0,3,2">
+                    <ComboBox x:Name="cbSwitchServer" HorizontalAlignment="Left" Margin="235,88,0,259" Width="304" SelectedIndex="0"/>
+                    <Button x:Name="btnSwitchServer" Content="伺服器切換" HorizontalAlignment="Left" Margin="316,261,0,0" VerticalAlignment="Top" Width="138" Height="52" Click="btnSwitchServer_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabPropertiesEdit" Header="設定檔修改">
+                <Grid Background="#FFE5E5E5" Margin="0,0,3,2">
+                    <ComboBox x:Name="cbServer" HorizontalAlignment="Left" Margin="173,43,0,0" VerticalAlignment="Top" Width="187" Height="23" RenderTransformOrigin="0.5,0.5" SelectedIndex="0"/>
+                    <Label Content="登入伺服器 : " HorizontalAlignment="Left" Margin="57,43,0,0" VerticalAlignment="Top" Height="27" Width="91" FontSize="14"/>
+                    <ComboBox x:Name="cbChatServer" HorizontalAlignment="Left" Margin="173,89,0,0" VerticalAlignment="Top" Width="187" Height="23" RenderTransformOrigin="0.5,0.5" SelectedIndex="0"/>
+                    <Label Content="聊天伺服器 : " HorizontalAlignment="Left" Margin="57,89,0,0" VerticalAlignment="Top" Height="27" Width="91" FontSize="14"/>
+                    <ComboBox x:Name="cbObsServer" HorizontalAlignment="Left" Margin="173,137,0,0" VerticalAlignment="Top" Width="187" Height="22" RenderTransformOrigin="0.5,0.5" SelectedIndex="0"/>
+                    <Label Content="觀戰伺服器 : " HorizontalAlignment="Left" Margin="57,137,0,0" VerticalAlignment="Top" Height="27" Width="91" FontSize="14"/>
+                    <ComboBox x:Name="cbLobbyLanding" HorizontalAlignment="Left" Margin="173,186,0,0" VerticalAlignment="Top" Width="187" Height="23" RenderTransformOrigin="0.5,0.5" SelectedIndex="0"/>
+                    <Label Content="大廳網頁 : " HorizontalAlignment="Left" Margin="57,186,0,0" VerticalAlignment="Top" Height="27" Width="91" FontSize="14"/>
+                    <ComboBox x:Name="cbLadder" HorizontalAlignment="Left" Margin="558,46,0,0" VerticalAlignment="Top" Width="187" Height="23" RenderTransformOrigin="0.5,0.5" SelectedIndex="0"/>
+                    <Label Content="天梯網頁 : " HorizontalAlignment="Left" Margin="442,46,0,0" VerticalAlignment="Top" Height="27" Width="91" FontSize="14"/>
+                    <ComboBox x:Name="cbStoryPage" HorizontalAlignment="Left" Margin="558,90,0,0" VerticalAlignment="Top" Width="187" Height="23" RenderTransformOrigin="0.5,0.5" SelectedIndex="0"/>
+                    <Label Content="故事網頁 : " HorizontalAlignment="Left" Margin="442,90,0,0" VerticalAlignment="Top" Height="27" Width="91" FontSize="14"/>
+                    <ComboBox x:Name="cbRssNews" HorizontalAlignment="Left" Margin="558,138,0,0" VerticalAlignment="Top" Width="187" Height="23" RenderTransformOrigin="0.5,0.5" SelectedIndex="0"/>
+                    <Label Content="新聞網頁 : " HorizontalAlignment="Left" Margin="442,138,0,0" VerticalAlignment="Top" Height="27" Width="91" FontSize="14"/>
+                    <ComboBox x:Name="cbHelpPage" HorizontalAlignment="Left" Margin="558,185,0,0" VerticalAlignment="Top" Width="187" Height="23" RenderTransformOrigin="0.5,0.5" SelectedIndex="0"/>
+                    <Label Content="幫助網頁 : " HorizontalAlignment="Left" Margin="442,185,0,0" VerticalAlignment="Top" Height="27" Width="91" FontSize="14"/>
+                    <Button x:Name="btnEdit" Content="修改" HorizontalAlignment="Left" Margin="350,298,0,0" VerticalAlignment="Top" Width="126" Height="36" Click="btnEdit_Click" />
+                </Grid>
             </TabItem>
         </TabControl>
 

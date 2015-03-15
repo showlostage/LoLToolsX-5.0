@@ -55,7 +55,7 @@ namespace LoLToolsX.Region
 
         public override string RegionTag
         {
-            get { return "enue"; }
+            get { return "regionTag=enue"; }
         }
 
         public override string RssStatusURLs
@@ -65,7 +65,7 @@ namespace LoLToolsX.Region
 
         public override string PlatformId
         {
-            get { return "EUN1"; }
+            get { return "platformId=EUN1"; }
         }
 
         public override string RiotDataServiceDataSendProbability

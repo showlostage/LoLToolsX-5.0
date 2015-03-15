@@ -55,7 +55,7 @@ namespace LoLToolsX.Region
 
         public override string RegionTag
         {
-            get { return "na"; }
+            get { return "regionTag=na"; }
         }
 
         public override string RssStatusURLs
@@ -65,7 +65,7 @@ namespace LoLToolsX.Region
 
         public override string PlatformId
         {
-            get { return "NA1"; }
+            get { return "platformId=NA1"; }
         }
 
         public override string RiotDataServiceDataSendProbability

@@ -29,7 +29,19 @@ namespace LoLToolsX.Logic
             }
         }
 
-        public static IRegion region { get; set; }
+        public static IRegion CurrentRegion { get; set; }
+
+        public static Dictionary<Server, IRegion> EnumToRegion = new Dictionary<Server, IRegion>() 
+        {
+            {Server.TW, new TW()},
+            {Server.NA, new NA()},
+            {Server.KR, new KR()},
+            {Server.SEA, new SEA()},
+            {Server.EUW, new EUW()},
+            {Server.EUNE, new EUNE()},
+            {Server.OCE, new OCE()},
+            {Server.PBE, new PBE()}
+        };
 
         public static string LoLPath
         {

@@ -60,6 +60,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Logic\PropertiesManager.cs" />
     <Compile Include="Region\Base\BaseRegion.cs" />
     <Compile Include="Region\Base\IRegion.cs" />
     <Compile Include="Region\EUNE.cs" />
@@ -70,6 +71,8 @@
     <Compile Include="Region\PBE.cs" />
     <Compile Include="Region\SEA.cs" />
     <Compile Include="Region\TW.cs" />
+    <Compile Include="Utils\EnumUtils.cs" />
+    <Compile Include="Utils\Util.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

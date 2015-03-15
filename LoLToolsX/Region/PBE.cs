@@ -55,7 +55,7 @@ namespace LoLToolsX.Region
 
         public override string RegionTag
         {
-            get { return "pbe1"; }
+            get { return "regionTag=pbe1"; }
         }
 
         public override string RssStatusURLs
@@ -65,7 +65,7 @@ namespace LoLToolsX.Region
 
         public override string PlatformId
         {
-            get { return "PBE"; }
+            get { return "platformId=PBE"; }
         }
 
         public override string RiotDataServiceDataSendProbability

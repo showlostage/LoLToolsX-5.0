@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using LoLToolsX.Utils;
+
 namespace LoLToolsX.Region
 {
     abstract class BaseRegion : IRegion
@@ -37,7 +39,7 @@ namespace LoLToolsX.Region
         public override string ToString()
         {
             StringBuilder str = new StringBuilder();
-            IList<System.Reflection.PropertyInfo> properties = typeof(BaseRegion).GetProperties().ToList();
+            IList<System.Reflection.PropertyInfo> properties = Util.GetProperties(typeof(IRegion));
             foreach (var p in properties)
             {
                 var v = p.GetValue(this, null).ToString();
