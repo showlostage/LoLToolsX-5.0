@@ -59,11 +59,19 @@ namespace LoLToolsX.Logic
             }
         }
 
-        public static string GetToolsVersion
+        public static string ToolsVersion
         {
             get
             {
                 return System.Reflection.Assembly.GetEntryAssembly().GetName().Version.ToString();
+            }
+        }
+
+        public static string LoLVersion
+        {
+            get
+            {
+                return System.IO.File.ReadAllText(Core.LoLPath + "lol.version");
             }
         }
 
@@ -80,13 +88,13 @@ namespace LoLToolsX.Logic
                 if (regKey.OpenSubKey("Software\\Garena\\LoLTW") != null)
                     path = regKey.OpenSubKey("Software\\Garena\\LoLTW").GetValue("Path").ToString();
             }
-
-            if (!path.EndsWith("LoLTW") || !path.EndsWith("LoLTW\\"))
+            path = path.Substring(0, path.Length - 1);
+            if (!path.EndsWith("LoLTW"))
             {
                 using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
                 {
                     dialog.Description = "請選擇 LoLTW 目錄";
-                    dialog.RootFolder = Environment.SpecialFolder.ProgramFiles;
+                    //dialog.RootFolder = Environment.SpecialFolder.ProgramFiles;
 
                     if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
@@ -130,9 +138,12 @@ namespace LoLToolsX.Logic
                         string line = reader.ReadLine();
                         if (line.StartsWith("host="))
                         {
-                            switch (line)
+                            var value = Core.EnumToRegion.Values;
+                            foreach (var v in value)
                             {
-                                //TODO
+                                if (v.ServerHost == line)
+                                    //System.Windows.MessageBox.Show(v.GetType().ToString());
+                                    return LoLToolsX.Utils.EnumUtils.ParseEnum<Server>(v.GetType().ToString().Replace("LoLToolsX.Region.", ""));
                             }
                         }
                     }

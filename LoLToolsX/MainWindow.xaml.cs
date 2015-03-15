@@ -31,7 +31,9 @@ namespace LoLToolsX
         {
             if (String.IsNullOrEmpty(Core.LoLPath))
                 Core.LoLPath = Core.GetLoLPath();
-            lblToolsVerson.Content = Core.GetToolsVersion;
+            lblToolsVerson.Content = Core.ToolsVersion;
+            lblServer.Content = Core.GetCurrentServer().ToString();
+            lblLolVersion.Content = Core.LoLVersion;
         }
 
         private void InitComboBox()

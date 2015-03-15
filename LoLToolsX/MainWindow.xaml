@@ -8,16 +8,17 @@
         <TabControl HorizontalAlignment="Left" Height="434" Margin="10,0,0,0" VerticalAlignment="Top" Width="812">
             <TabItem Name="tabAbout" Header="狀態資訊">
                 <Grid Background="#FFE5E5E5" Margin="0,0,3,2">
-                    <Label Content="LoLTW 路徑 : " HorizontalAlignment="Left" Margin="12,98,0,0" VerticalAlignment="Top" Height="35" Width="115" FontSize="18"/>
-                    <Label Content="LoL 版本 : " HorizontalAlignment="Left" Margin="12,204,0,0" VerticalAlignment="Top" Height="33" Width="89" FontSize="18"/>
-                    <Label Content="客戶端 : " HorizontalAlignment="Left" Margin="12,149,0,0" VerticalAlignment="Top" Height="33" Width="89" FontSize="18"/>
-                    <Label Content="LoLToolsX 版本 : " HorizontalAlignment="Left" Margin="12,260,0,0" VerticalAlignment="Top" Height="33" Width="137" FontSize="18"/>
-                    <Label Content="目前伺服器 : " HorizontalAlignment="Left" Margin="12,317,0,0" VerticalAlignment="Top" Height="33" Width="115" FontSize="18"/>
-                    <Label x:Name="lblPath" Content="Path" HorizontalAlignment="Left" Margin="217,98,0,0" VerticalAlignment="Top" Height="33" Width="576" FontSize="18"/>
-                    <Label x:Name="lblClient" Content="CLient" HorizontalAlignment="Left" Margin="217,149,0,0" VerticalAlignment="Top" Height="33" Width="576" FontSize="18"/>
-                    <Label x:Name="lblLolVersion" Content="LoLVersion" HorizontalAlignment="Left" Margin="217,204,0,0" VerticalAlignment="Top" Height="33" Width="576" FontSize="18"/>
-                    <Label x:Name="lblServer" Content="Server" HorizontalAlignment="Left" Margin="217,317,0,0" VerticalAlignment="Top" Height="33" Width="576" FontSize="18"/>
-                    <Label x:Name="lblToolsVerson" HorizontalAlignment="Left" Margin="217,260,0,0" VerticalAlignment="Top" Height="33" Width="576" FontSize="18"/>
+                    <Label Content="LoLTW 路徑 : " HorizontalAlignment="Left" Margin="39,113,0,0" VerticalAlignment="Top" Height="35" Width="115" FontSize="18"/>
+                    <Label Content="LoL 版本 : " HorizontalAlignment="Left" Margin="39,219,0,0" VerticalAlignment="Top" Height="33" Width="89" FontSize="18"/>
+                    <Label Content="客戶端 : " HorizontalAlignment="Left" Margin="39,164,0,0" VerticalAlignment="Top" Height="33" Width="89" FontSize="18"/>
+                    <Label Content="LoLToolsX 版本 : " HorizontalAlignment="Left" Margin="39,275,0,0" VerticalAlignment="Top" Height="33" Width="137" FontSize="18"/>
+                    <Label Content="目前伺服器 : " HorizontalAlignment="Left" Margin="39,332,0,0" VerticalAlignment="Top" Height="33" Width="115" FontSize="18"/>
+                    <Label x:Name="lblPath" Content="Path" HorizontalAlignment="Left" Margin="244,113,0,0" VerticalAlignment="Top" Height="33" Width="549" FontSize="18"/>
+                    <Label x:Name="lblClient" Content="台服" HorizontalAlignment="Left" Margin="244,164,0,0" VerticalAlignment="Top" Height="33" Width="549" FontSize="18"/>
+                    <Label x:Name="lblLolVersion" Content="LoLVersion" HorizontalAlignment="Left" Margin="244,219,0,0" VerticalAlignment="Top" Height="33" Width="549" FontSize="18"/>
+                    <Label x:Name="lblServer" Content="Server" HorizontalAlignment="Left" Margin="244,332,0,0" VerticalAlignment="Top" Height="33" Width="549" FontSize="18"/>
+                    <Label x:Name="lblToolsVerson" HorizontalAlignment="Left" Margin="244,275,0,0" VerticalAlignment="Top" Height="33" Width="549" FontSize="18"/>
+                    <Image x:Name="imageLogo" HorizontalAlignment="Left" Height="98" Margin="107,10,0,0" VerticalAlignment="Top" Width="602"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabServerSwitch" Header="伺服器切換">
